@@ -12,6 +12,9 @@
 		7F1C3E341F96F1330072BB7F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F1C3E321F96F1330072BB7F /* Main.storyboard */; };
 		7F1C3E361F96F1330072BB7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F1C3E351F96F1330072BB7F /* Assets.xcassets */; };
 		7F1C3E391F96F1330072BB7F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F1C3E371F96F1330072BB7F /* LaunchScreen.storyboard */; };
+		7F1C3E411F96F23D0072BB7F /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1C3E401F96F23D0072BB7F /* ApiService.swift */; };
+		7F3BC7DF1F975CB2004756CA /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3BC7DE1F975CB2004756CA /* Extension.swift */; };
+		B8B7357F4E3951964F2826E7 /* Pods_SAMI_LOTTERY.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 901A48DF896733F9C9D4AE38 /* Pods_SAMI_LOTTERY.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,11 @@
 		7F1C3E351F96F1330072BB7F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7F1C3E381F96F1330072BB7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7F1C3E3A1F96F1330072BB7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7F1C3E401F96F23D0072BB7F /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		7F3BC7DE1F975CB2004756CA /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		8180A22B0A0B79C7ACB66BCA /* Pods-SAMI-LOTTERY.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SAMI-LOTTERY.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SAMI-LOTTERY/Pods-SAMI-LOTTERY.debug.xcconfig"; sourceTree = "<group>"; };
+		901A48DF896733F9C9D4AE38 /* Pods_SAMI_LOTTERY.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SAMI_LOTTERY.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FEFE7B78DFD04BDE5EDF593C /* Pods-SAMI-LOTTERY.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SAMI-LOTTERY.release.xcconfig"; path = "Pods/Target Support Files/Pods-SAMI-LOTTERY/Pods-SAMI-LOTTERY.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +37,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8B7357F4E3951964F2826E7 /* Pods_SAMI_LOTTERY.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		17716DE19B519E1E39396B2F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				901A48DF896733F9C9D4AE38 /* Pods_SAMI_LOTTERY.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1A0FA7BCDA0FC0C2F8A48733 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8180A22B0A0B79C7ACB66BCA /* Pods-SAMI-LOTTERY.debug.xcconfig */,
+				FEFE7B78DFD04BDE5EDF593C /* Pods-SAMI-LOTTERY.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		7F1C3E221F96F1330072BB7F = {
 			isa = PBXGroup;
 			children = (
 				7F1C3E2D1F96F1330072BB7F /* SAMI-LOTTERY */,
 				7F1C3E2C1F96F1330072BB7F /* Products */,
+				1A0FA7BCDA0FC0C2F8A48733 /* Pods */,
+				17716DE19B519E1E39396B2F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,7 +83,9 @@
 			isa = PBXGroup;
 			children = (
 				7F1C3E2E1F96F1330072BB7F /* AppDelegate.swift */,
+				7F1C3E401F96F23D0072BB7F /* ApiService.swift */,
 				7F1C3E301F96F1330072BB7F /* ViewController.swift */,
+				7F3BC7DE1F975CB2004756CA /* Extension.swift */,
 				7F1C3E321F96F1330072BB7F /* Main.storyboard */,
 				7F1C3E351F96F1330072BB7F /* Assets.xcassets */,
 				7F1C3E371F96F1330072BB7F /* LaunchScreen.storyboard */,
@@ -71,9 +101,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7F1C3E3D1F96F1330072BB7F /* Build configuration list for PBXNativeTarget "SAMI-LOTTERY" */;
 			buildPhases = (
+				8C5DEAEE69A32303B6E39E3D /* [CP] Check Pods Manifest.lock */,
 				7F1C3E271F96F1330072BB7F /* Sources */,
 				7F1C3E281F96F1330072BB7F /* Frameworks */,
 				7F1C3E291F96F1330072BB7F /* Resources */,
+				5105873E965C5CD2F848B7AB /* [CP] Embed Pods Frameworks */,
+				1072EB5ED8929F2F71EEFF45 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -131,6 +164,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1072EB5ED8929F2F71EEFF45 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SAMI-LOTTERY/Pods-SAMI-LOTTERY-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5105873E965C5CD2F848B7AB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SAMI-LOTTERY/Pods-SAMI-LOTTERY-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8C5DEAEE69A32303B6E39E3D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7F1C3E271F96F1330072BB7F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -138,6 +219,8 @@
 			files = (
 				7F1C3E311F96F1330072BB7F /* ViewController.swift in Sources */,
 				7F1C3E2F1F96F1330072BB7F /* AppDelegate.swift in Sources */,
+				7F1C3E411F96F23D0072BB7F /* ApiService.swift in Sources */,
+				7F3BC7DF1F975CB2004756CA /* Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,9 +355,11 @@
 		};
 		7F1C3E3E1F96F1330072BB7F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8180A22B0A0B79C7ACB66BCA /* Pods-SAMI-LOTTERY.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PW99NSCKEC;
 				INFOPLIST_FILE = "SAMI-LOTTERY/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.khoa.SAMI-LOTTERY";
@@ -286,9 +371,11 @@
 		};
 		7F1C3E3F1F96F1330072BB7F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FEFE7B78DFD04BDE5EDF593C /* Pods-SAMI-LOTTERY.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PW99NSCKEC;
 				INFOPLIST_FILE = "SAMI-LOTTERY/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.khoa.SAMI-LOTTERY";
