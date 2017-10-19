@@ -8,5 +8,5 @@ target 'SAMI-LOTTERY' do
   # Pods for SAMI-LOTTERY
 	pod 'Alamofire', '~> 4.4'
 	pod 'SwiftyJSON’
-
+    pod 'Toast-Swift', '~> 2.0.0'
 end

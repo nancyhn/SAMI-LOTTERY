@@ -14,6 +14,9 @@
 		7F1C3E391F96F1330072BB7F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F1C3E371F96F1330072BB7F /* LaunchScreen.storyboard */; };
 		7F1C3E411F96F23D0072BB7F /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1C3E401F96F23D0072BB7F /* ApiService.swift */; };
 		7F3BC7DF1F975CB2004756CA /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3BC7DE1F975CB2004756CA /* Extension.swift */; };
+		7F502EE91F98842A0072A180 /* ListAccount.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F502EE81F9884290072A180 /* ListAccount.plist */; };
+		7F8AEE5C1F988665005D6E59 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F8AEE5A1F988665005D6E59 /* LoginView.swift */; };
+		7F8AEE5D1F988665005D6E59 /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F8AEE5B1F988665005D6E59 /* LoginView.xib */; };
 		B8B7357F4E3951964F2826E7 /* Pods_SAMI_LOTTERY.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 901A48DF896733F9C9D4AE38 /* Pods_SAMI_LOTTERY.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +30,9 @@
 		7F1C3E3A1F96F1330072BB7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7F1C3E401F96F23D0072BB7F /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		7F3BC7DE1F975CB2004756CA /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		7F502EE81F9884290072A180 /* ListAccount.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ListAccount.plist; sourceTree = "<group>"; };
+		7F8AEE5A1F988665005D6E59 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		7F8AEE5B1F988665005D6E59 /* LoginView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
 		8180A22B0A0B79C7ACB66BCA /* Pods-SAMI-LOTTERY.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SAMI-LOTTERY.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SAMI-LOTTERY/Pods-SAMI-LOTTERY.debug.xcconfig"; sourceTree = "<group>"; };
 		901A48DF896733F9C9D4AE38 /* Pods_SAMI_LOTTERY.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SAMI_LOTTERY.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEFE7B78DFD04BDE5EDF593C /* Pods-SAMI-LOTTERY.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SAMI-LOTTERY.release.xcconfig"; path = "Pods/Target Support Files/Pods-SAMI-LOTTERY/Pods-SAMI-LOTTERY.release.xcconfig"; sourceTree = "<group>"; };
@@ -85,11 +91,14 @@
 				7F1C3E2E1F96F1330072BB7F /* AppDelegate.swift */,
 				7F1C3E401F96F23D0072BB7F /* ApiService.swift */,
 				7F1C3E301F96F1330072BB7F /* ViewController.swift */,
+				7F8AEE5A1F988665005D6E59 /* LoginView.swift */,
+				7F8AEE5B1F988665005D6E59 /* LoginView.xib */,
 				7F3BC7DE1F975CB2004756CA /* Extension.swift */,
 				7F1C3E321F96F1330072BB7F /* Main.storyboard */,
 				7F1C3E351F96F1330072BB7F /* Assets.xcassets */,
 				7F1C3E371F96F1330072BB7F /* LaunchScreen.storyboard */,
 				7F1C3E3A1F96F1330072BB7F /* Info.plist */,
+				7F502EE81F9884290072A180 /* ListAccount.plist */,
 			);
 			path = "SAMI-LOTTERY";
 			sourceTree = "<group>";
@@ -156,8 +165,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F502EE91F98842A0072A180 /* ListAccount.plist in Resources */,
 				7F1C3E391F96F1330072BB7F /* LaunchScreen.storyboard in Resources */,
 				7F1C3E361F96F1330072BB7F /* Assets.xcassets in Resources */,
+				7F8AEE5D1F988665005D6E59 /* LoginView.xib in Resources */,
 				7F1C3E341F96F1330072BB7F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -220,6 +231,7 @@
 				7F1C3E311F96F1330072BB7F /* ViewController.swift in Sources */,
 				7F1C3E2F1F96F1330072BB7F /* AppDelegate.swift in Sources */,
 				7F1C3E411F96F23D0072BB7F /* ApiService.swift in Sources */,
+				7F8AEE5C1F988665005D6E59 /* LoginView.swift in Sources */,
 				7F3BC7DF1F975CB2004756CA /* Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

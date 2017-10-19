@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "728B46B9F6BD68266E248FE72A2386DF"
+               BlueprintIdentifier = "5CBC0852F2ED17264BAAAC0DDB56E04A"
                BuildableName = "Pods_SAMI_LOTTERY.framework"
                BlueprintName = "Pods-SAMI-LOTTERY"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -47,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "728B46B9F6BD68266E248FE72A2386DF"
+            BlueprintIdentifier = "5CBC0852F2ED17264BAAAC0DDB56E04A"
             BuildableName = "Pods_SAMI_LOTTERY.framework"
             BlueprintName = "Pods-SAMI-LOTTERY"
             ReferencedContainer = "container:Pods.xcodeproj">

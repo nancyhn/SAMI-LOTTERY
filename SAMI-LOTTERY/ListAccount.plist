@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>sonda</key>
+	<string>+sonda</string>
+	<key>khanhdq</key>
+	<string>.khanhdq</string>
+	<key>tuanha</key>
+	<string>*tuanha</string>
+	<key>thanhlt</key>
+	<string>&amp;thanhlt</string>
+	<key>anhnt</key>
+	<string>^anhnt</string>
+	<key>taind</key>
+	<string>$taind</string>
+	<key>vietnd</key>
+	<string>#vietnd</string>
+	<key>longnh</key>
+	<string>-longnh</string>
+	<key>hungpv</key>
+	<string>_hungpv</string>
+	<key>tientn</key>
+	<string>|tientn</string>
+	<key>nghiadd</key>
+	<string>!nghiadd</string>
+</dict>
+</plist>
