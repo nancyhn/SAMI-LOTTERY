@@ -50,6 +50,7 @@ class ViewController: UIViewController, UITextFieldDelegate, MFMessageComposeVie
             print("~~~~~~~~~~~\(accountKey)")
             
             tfNhat.becomeFirstResponder()
+            addExKBView()
         }
     }
     
@@ -60,7 +61,7 @@ class ViewController: UIViewController, UITextFieldDelegate, MFMessageComposeVie
         
         arrTextField = [tfNhat, tfNhi1, tfNhi2, tfBa1, tfBa2, tfBa3, tfBa4, tfBa5, tfBa6, tfTu1, tfTu2, tfTu3, tfTu4, tfNam1, tfNam2, tfNam3, tfNam4, tfNam5, tfNam6, tfSau1, tfSau2, tfSau3, tfBay1, tfBay2, tfBay3, tfBay4, tfDB]
         configTextField()
-        addExKBView()
+        
         
         for i in 0..<arrTextField.count {
             let tf = arrTextField[i]
@@ -94,23 +95,37 @@ class ViewController: UIViewController, UITextFieldDelegate, MFMessageComposeVie
     var strInTF = String()
     var tagPrevious : Int = 0
     @IBAction func sendResult(sender: UIButton) {
-        strInTF = "tt "
+        strInTF = "tt"
+        
         for i in 0..<arrTextField.count {
             let tf = arrTextField[i]
-            if tagPrevious != 0 || tagPrevious != tf.tag {
-                
-            }
-            tagPrevious = tf.tag
-            if tf.text == "" || tf.text == nil {
-                strInTF = String.init(format: "%@-%@", strInTF, createEmptyString(lenght: tf.tag))
-            }
-            else {
-                if tf.text!.characters.count == tf.tag {
-                    strInTF = String.init(format: "%@-%@", strInTF, tf.text!)
+            if i == 0 || i == 1 || i == 3 || i == 9 || i == 13 || i == 19 || i == 22 {
+                //them " "
+                if tf.text == "" || tf.text == nil {
+                    strInTF = String.init(format: "%@ %@", strInTF, createEmptyString(lenght: tf.tag))
                 }
                 else {
-                    tf.textColor = UIColor.red
-                    return
+                    if tf.text!.characters.count == tf.tag {
+                        strInTF = String.init(format: "%@ %@", strInTF, tf.text!)
+                    }
+                    else {
+                        tf.textColor = UIColor.red
+                        return
+                    }
+                }
+            }
+            else { //them "-"
+                if tf.text == "" || tf.text == nil {
+                    strInTF = String.init(format: "%@-%@", strInTF, createEmptyString(lenght: tf.tag))
+                }
+                else {
+                    if tf.text!.characters.count == tf.tag {
+                        strInTF = String.init(format: "%@-%@", strInTF, tf.text!)
+                    }
+                    else {
+                        tf.textColor = UIColor.red
+                        return
+                    }
                 }
             }
         }
