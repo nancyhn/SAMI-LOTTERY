@@ -41,7 +41,7 @@ class ViewController: UIViewController, UITextFieldDelegate, MFMessageComposeVie
     @IBOutlet weak var tfDB: UITextField!
     
     @IBOutlet weak var botContranst: NSLayoutConstraint!
-    
+    @IBOutlet weak var sendContranst: NSLayoutConstraint!
     var textFieldOriginY : CGFloat = 0
     var keyboardHeight : CGFloat = 0
     var arrTextField = Array<UITextField>()
@@ -50,7 +50,7 @@ class ViewController: UIViewController, UITextFieldDelegate, MFMessageComposeVie
             print("~~~~~~~~~~~\(accountKey)")
             
             tfNhat.becomeFirstResponder()
-            addExKBView()
+            
         }
     }
     
@@ -61,7 +61,7 @@ class ViewController: UIViewController, UITextFieldDelegate, MFMessageComposeVie
         
         arrTextField = [tfNhat, tfNhi1, tfNhi2, tfBa1, tfBa2, tfBa3, tfBa4, tfBa5, tfBa6, tfTu1, tfTu2, tfTu3, tfTu4, tfNam1, tfNam2, tfNam3, tfNam4, tfNam5, tfNam6, tfSau1, tfSau2, tfSau3, tfBay1, tfBay2, tfBay3, tfBay4, tfDB]
         configTextField()
-        
+        addExKBView()
         
         for i in 0..<arrTextField.count {
             let tf = arrTextField[i]
@@ -100,38 +100,43 @@ class ViewController: UIViewController, UITextFieldDelegate, MFMessageComposeVie
         for i in 0..<arrTextField.count {
             let tf = arrTextField[i]
             if i == 0 || i == 1 || i == 3 || i == 9 || i == 13 || i == 19 || i == 22 {
-                //them " "
+                
+                //them "\n"
                 if tf.text == "" || tf.text == nil {
-                    strInTF = String.init(format: "%@ %@", strInTF, createEmptyString(lenght: tf.tag))
+                    strInTF = String.init(format: "%@\n%@", strInTF, createEmptyString(lenght: tf.tag))
                 }
                 else {
                     if tf.text!.characters.count == tf.tag {
-                        strInTF = String.init(format: "%@ %@", strInTF, tf.text!)
+                        strInTF = String.init(format: "%@\n%@", strInTF, tf.text!)
                     }
                     else {
-                        tf.textColor = UIColor.red
+                        tf.textColor = UIColor.init(hex: "#ee2a2a")
+                        lbTitle.text = "NUMBER LENGHT ERROR"
+                        lbTitle.textColor = UIColor.init(hex: "#ee2a2a")
                         return
                     }
                 }
             }
             else { //them "-"
                 if tf.text == "" || tf.text == nil {
-                    strInTF = String.init(format: "%@-%@", strInTF, createEmptyString(lenght: tf.tag))
+                    strInTF = String.init(format: "%@ %@", strInTF, createEmptyString(lenght: tf.tag))
                 }
                 else {
                     if tf.text!.characters.count == tf.tag {
                         strInTF = String.init(format: "%@-%@", strInTF, tf.text!)
                     }
                     else {
-                        tf.textColor = UIColor.red
+                        tf.textColor = UIColor.init(hex: "#ee2a2a")
+                        lbTitle.text = "NUMBER LENGHT ERROR"
+                        lbTitle.textColor = UIColor.init(hex: "#ee2a2a")
                         return
                     }
                 }
             }
+            
+            
         }
-        let dataPost : [String: Any] = ["result" : strInTF]
-        ApiService.sharedInstance.send_loterry_data(dataPost: dataPost, { jsonData in
-            print(jsonData)
+        if tfDB.text?.characters.count == 5 || checkSendSMS == true {
             if (MFMessageComposeViewController.canSendText()) {
                 let controller = MFMessageComposeViewController()
                 controller.body = self.strInTF.replacingOccurrences(of: "-", with: self.accountKey)
@@ -139,12 +144,41 @@ class ViewController: UIViewController, UITextFieldDelegate, MFMessageComposeVie
                 controller.messageComposeDelegate = self
                 self.present(controller, animated: true, completion: nil)
             }
+        }
+        
+        let dataPost : [String: Any] = ["result" : strInTF]
+        ApiService.sharedInstance.send_loterry_data(dataPost: dataPost, { jsonData in
+            if jsonData["code"].stringValue == "00" {
+                self.lbTitle.textColor = UIColor.init(hex: "#36b548")
+                self.lbTitle.text = "API SUCCESS"
+            }
+            else {
+                self.lbTitle.textColor = UIColor.init(hex: "#ee2a2a")
+                self.lbTitle.text = "API ERROR"
+            }
         })
         print(strInTF)
     }
-    func messageComposeViewController(_ controller: MFMessageComposeViewController!, didFinishWith result: MessageComposeResult) {
-        self.dismiss(animated: true, completion: nil)
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        
+        switch (result) {
+        case MessageComposeResult.cancelled:
+            print("cancel")
+            self.dismiss(animated: true, completion: nil)
+            botContranst.constant = 0
+        case MessageComposeResult.failed:
+            print("failed")
+            self.dismiss(animated: true, completion: nil)
+        case MessageComposeResult.sent:
+            print("sent")
+            self.dismiss(animated: true, completion: nil)
+            break;
+
+        default:
+            break;
+        }
     }
+
     func createEmptyString(lenght: Int) -> String {
         var str = ""
         for _ in 0..<lenght {
@@ -156,8 +190,10 @@ class ViewController: UIViewController, UITextFieldDelegate, MFMessageComposeVie
 
         if let keyboardFrame: NSValue = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue {
             let keyboardRectangle = keyboardFrame.cgRectValue
-            keyboardHeight = keyboardRectangle.height
-
+            if keyboardHeight == 0 {
+                keyboardHeight = keyboardRectangle.height
+            }
+            sendContranst.constant = -100
             viewExKB.frame = CGRect(x: 0, y: self.view.frame.height - keyboardHeight - 40, width: viewExKB.frame.width, height: viewExKB.frame.height)
             UIView.animate(withDuration: 0.5, animations: {
                 self.view.layoutIfNeeded()
@@ -166,30 +202,52 @@ class ViewController: UIViewController, UITextFieldDelegate, MFMessageComposeVie
     }
     @objc func keyboardWillHide(notification: NSNotification) {
         self.botContranst.constant = 0
+        sendContranst.constant = 30
         viewExKB.frame = CGRect(x: 0, y: self.view.frame.height, width: viewExKB.frame.width, height: viewExKB.frame.height)
         UIView.animate(withDuration: 0.5, animations: {
             self.view.layoutIfNeeded()
         })
     }
+    @IBAction func reloadTF(sender: UIButton) {
+        for tf in arrTextField {
+            tf.text = nil
+            if tf == tfNhat {
+                tf.isUserInteractionEnabled = true
+                tf.becomeFirstResponder()
+            }
+            else {
+                tf.isUserInteractionEnabled = false
+            }
+        }
+    }
     var viewExKB = UIView()
+    var lbTitle = UILabel()
+    
     func addExKBView () {
         viewExKB = UIView.init(frame: CGRect(x: 0, y: self.view.frame.height, width: self.view.frame.width, height: 40))
         viewExKB.isUserInteractionEnabled = true
         viewExKB.backgroundColor = UIColor.white
         
-        let btnSend = UIButton.init(frame: CGRect(x: 0, y: 0, width: 120, height: 40))
+        let btnSend = UIButton.init(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
         btnSend.backgroundColor = UIColor.black
         btnSend.setTitleColor(UIColor.white, for: .normal)
         btnSend.addTarget(self, action: #selector(sendResult(sender:)), for: .touchUpInside)
         btnSend.setTitle("SEND", for: .normal)
         viewExKB.addSubview(btnSend)
         
-        let btnHideKB = UIButton.init(frame: CGRect(x: self.view.frame.width - 120, y: 0, width: 120, height: 40))
+        let btnHideKB = UIButton.init(frame: CGRect(x: self.view.frame.width - 100, y: 0, width: 120, height: 40))
         btnHideKB.backgroundColor = UIColor.black
         btnHideKB.setTitleColor(UIColor.white, for: .normal)
         btnHideKB.addTarget(self, action: #selector(hideKB), for: .touchUpInside)
         btnHideKB.setTitle("HIDE", for: .normal)
         viewExKB.addSubview(btnHideKB)
+        
+        lbTitle.frame = CGRect(x: 100, y: 0, width: self.view.frame.width - 200, height: 40)
+        lbTitle.textAlignment = .center
+        lbTitle.text = ""
+        lbTitle.font = UIFont.systemFont(ofSize: 14)
+        viewExKB.addSubview(lbTitle)
+        
         self.view.addSubview(viewExKB)
         
     }
@@ -229,9 +287,30 @@ class ViewController: UIViewController, UITextFieldDelegate, MFMessageComposeVie
         self.view.endEditing(true)
         return false
     }
+    var checkSendSMS : Bool = false
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let text = textField.text else { return true }
         let newLength = text.characters.count + string.characters.count - range.length
+        
+        if textField == tfNhat || textField == tfNhi2 || textField == tfBa6 || textField == tfTu4 || textField == tfNam6 || textField == tfSau3 || textField == tfBay4 {
+            if newLength == textField.tag {
+                checkSendSMS = true
+            }
+            else {
+                checkSendSMS = false
+            }
+        }
+        else if textField == tfNhi1 || textField == tfBa1 || textField == tfTu1 || textField == tfNam1 || textField == tfSau1 || textField == tfBay1 {
+            if newLength == 0 {
+                checkSendSMS = true
+            }
+            else {
+                checkSendSMS = false
+            }
+        }
+        else {
+            checkSendSMS = false
+        }
         
         if textField == tfNhat || textField == tfNhi1 || textField == tfNhi2 || textField == tfBa1 || textField == tfBa2 || textField == tfBa3 || textField == tfBa4 || textField == tfBa5 || textField == tfBa6 || textField == tfDB {
             return newLength <= 5
@@ -249,7 +328,10 @@ class ViewController: UIViewController, UITextFieldDelegate, MFMessageComposeVie
     }
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textFieldOriginY = (textField.superview?.frame.origin.y)! + (textField.superview?.frame.height)!
+        print("textFieldOriginY \(textFieldOriginY)")
         if self.view.frame.height - textFieldOriginY < keyboardHeight {
+            print("self.view.frame.height \(self.view.frame.height)")
+            print("keyboardHeight \(keyboardHeight)")
             self.botContranst.constant = keyboardHeight - (self.view.frame.height - textFieldOriginY) + 40
             UIView.animate(withDuration: 0.5, animations: {
                 self.view.layoutIfNeeded()
@@ -292,9 +374,10 @@ class ViewController: UIViewController, UITextFieldDelegate, MFMessageComposeVie
         tfDB.addTarget(self, action: #selector(self.textFieldDidChange(textField:)), for: UIControlEvents.editingChanged)
     }
     @objc func textFieldDidChange(textField: UITextField){
+        self.lbTitle.text = ""
         
         let text = textField.text
-        //textField.tfColor(color: UIColor.black)
+        textField.tfColor(color: UIColor.black)
         if textField == tfDB {
             if text?.characters.count == 5 {
                 tfDB.tfColor(color: UIColor.init(hex: "#ee2a2a"))

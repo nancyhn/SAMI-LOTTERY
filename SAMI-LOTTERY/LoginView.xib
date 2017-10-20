@@ -64,7 +64,7 @@
                             </connections>
                         </textField>
                     </subviews>
-                    <color key="backgroundColor" red="0.94901960780000005" green="0.96078431369999995" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.18039215689999999" green="0.42352941179999998" blue="0.64313725489999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="ZV8-gZ-Gri" secondAttribute="trailing" constant="20" id="85P-Ab-ggf"/>
                         <constraint firstAttribute="trailing" secondItem="tly-rZ-nQq" secondAttribute="trailing" constant="20" id="9fn-lz-v03"/>
@@ -90,7 +90,7 @@
                     </connections>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="0.0" alpha="0.40000000000000002" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.94901960780000005" green="0.96078431369999995" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="9Nj-SE-Buy" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="hw1-3f-xpR"/>
                 <constraint firstItem="9Nj-SE-Buy" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="jP0-jx-Ife"/>

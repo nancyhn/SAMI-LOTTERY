@@ -29,7 +29,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="VwI-g8-eWh"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -62,7 +62,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="xkR-Pr-uVA"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                 <color key="textColor" red="0.93333333330000001" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -113,7 +113,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="Sek-5S-0xr"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -195,7 +195,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="qP6-gN-ipz"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -266,7 +266,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="023-aB-8qf"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -325,7 +325,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="SWT-tf-sma"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -406,7 +406,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="e1a-zc-Dbl"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -496,7 +496,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="3Yr-qX-ZmG"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -533,13 +533,13 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ftn-9m-iyu">
-                                        <rect key="frame" x="250" y="439" width="60" height="40"/>
-                                        <color key="backgroundColor" red="0.93333333330000001" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
+                                        <rect key="frame" x="260" y="30" width="50" height="40"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="eCe-N2-g9F"/>
-                                            <constraint firstAttribute="width" constant="60" id="xR8-9G-WfP"/>
+                                            <constraint firstAttribute="width" constant="50" id="olI-rd-eA0"/>
+                                            <constraint firstAttribute="height" constant="40" id="qk5-uy-hQ7"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <state key="normal" title="SEND"/>
                                         <connections>
                                             <action selector="sendResultWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="j9R-Cw-cHu"/>
@@ -551,7 +551,6 @@
                                     <constraint firstItem="sNY-Jg-cQu" firstAttribute="top" secondItem="F6M-9G-8Yq" secondAttribute="bottom" constant="10" id="5AY-CC-R5O"/>
                                     <constraint firstItem="CgL-VV-bA9" firstAttribute="height" secondItem="CbD-sa-39F" secondAttribute="height" multiplier="45:480" id="70q-GM-WHj"/>
                                     <constraint firstItem="hD0-dX-5UB" firstAttribute="height" secondItem="CbD-sa-39F" secondAttribute="height" multiplier="45:480" id="77J-rI-4Ux"/>
-                                    <constraint firstAttribute="trailing" secondItem="ftn-9m-iyu" secondAttribute="trailing" constant="10" id="7ea-LP-Y0l"/>
                                     <constraint firstItem="F6M-9G-8Yq" firstAttribute="centerX" secondItem="CbD-sa-39F" secondAttribute="centerX" id="8wi-GJ-UKg"/>
                                     <constraint firstItem="DG1-ya-5RM" firstAttribute="top" secondItem="k7G-2T-EvF" secondAttribute="bottom" constant="5" id="92O-6i-Grp"/>
                                     <constraint firstItem="k7G-2T-EvF" firstAttribute="centerX" secondItem="CbD-sa-39F" secondAttribute="centerX" id="99X-UH-NqC"/>
@@ -571,7 +570,7 @@
                                     <constraint firstItem="CgL-VV-bA9" firstAttribute="width" secondItem="CbD-sa-39F" secondAttribute="width" multiplier="300:320" id="ZET-Bm-AN8"/>
                                     <constraint firstItem="xgP-g6-EdZ" firstAttribute="height" secondItem="CbD-sa-39F" secondAttribute="height" multiplier="45:480" id="bqg-rO-2vu"/>
                                     <constraint firstItem="xgP-g6-EdZ" firstAttribute="top" secondItem="CbD-sa-39F" secondAttribute="top" constant="25" id="cgm-NP-Pl9"/>
-                                    <constraint firstItem="ftn-9m-iyu" firstAttribute="top" secondItem="F6M-9G-8Yq" secondAttribute="bottom" constant="20" id="gko-32-iZn"/>
+                                    <constraint firstAttribute="trailing" secondItem="ftn-9m-iyu" secondAttribute="trailing" constant="10" id="gTv-Db-YcF"/>
                                     <constraint firstItem="CgL-VV-bA9" firstAttribute="top" secondItem="DG1-ya-5RM" secondAttribute="bottom" constant="5" id="gse-6z-4L9"/>
                                     <constraint firstItem="xgP-g6-EdZ" firstAttribute="centerX" secondItem="CbD-sa-39F" secondAttribute="centerX" id="h8I-A5-bNl"/>
                                     <constraint firstItem="F6M-9G-8Yq" firstAttribute="width" secondItem="CbD-sa-39F" secondAttribute="width" multiplier="300:320" id="hfY-Jl-mL0"/>
@@ -582,6 +581,7 @@
                                     <constraint firstItem="hD0-dX-5UB" firstAttribute="centerX" secondItem="CbD-sa-39F" secondAttribute="centerX" id="qwn-oq-sFI"/>
                                     <constraint firstItem="JzW-bF-em0" firstAttribute="width" secondItem="CbD-sa-39F" secondAttribute="width" multiplier="245:320" id="rIi-hh-Kwf"/>
                                     <constraint firstItem="k7G-2T-EvF" firstAttribute="height" secondItem="CbD-sa-39F" secondAttribute="height" multiplier="45:480" id="ulY-ww-B98"/>
+                                    <constraint firstItem="ftn-9m-iyu" firstAttribute="top" secondItem="CbD-sa-39F" secondAttribute="top" constant="30" id="wXN-QC-wZB"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -596,6 +596,7 @@
                     </view>
                     <connections>
                         <outlet property="botContranst" destination="Og1-pp-uxy" id="HKp-sv-FaU"/>
+                        <outlet property="sendContranst" destination="wXN-QC-wZB" id="stb-gS-dYx"/>
                         <outlet property="tfBa1" destination="vdC-xC-Kkc" id="Zyd-PD-lcu"/>
                         <outlet property="tfBa2" destination="roF-pq-6LD" id="wS0-ks-c2V"/>
                         <outlet property="tfBa3" destination="gM4-Vq-tm3" id="NLf-D8-7nq"/>
