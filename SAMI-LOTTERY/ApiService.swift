@@ -16,9 +16,11 @@ class ApiService: NSObject {
     var myString = String()
     
     let link = "http://megaball.vn:8080/api/soccer/admin"
+    let link_new = "http://service.macvui.com/soccer_v4/admin"
+
     
     func send_loterry_data(dataPost: [String: Any], _ completion: @escaping (JSON) -> ()) {
-        postDataForUrlString("\(link)/lottery/direct_ios", dataPost: dataPost, completion: completion)
+        postDataForUrlString("\(link)/lottery/direct", dataPost: dataPost, completion: completion)
     }
     
     //GET

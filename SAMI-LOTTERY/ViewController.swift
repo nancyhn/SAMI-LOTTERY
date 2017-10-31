@@ -47,7 +47,6 @@ class ViewController: UIViewController, UITextFieldDelegate, MFMessageComposeVie
     var arrTextField = Array<UITextField>()
     var accountKey : String = "" {
         didSet {
-            print("~~~~~~~~~~~\(accountKey)")
             
             tfNhat.becomeFirstResponder()
             
@@ -99,15 +98,15 @@ class ViewController: UIViewController, UITextFieldDelegate, MFMessageComposeVie
         
         for i in 0..<arrTextField.count {
             let tf = arrTextField[i]
-            if i == 0 || i == 1 || i == 3 || i == 9 || i == 13 || i == 19 || i == 22 {
+            if i == 1 || i == 3 || i == 9 || i == 13 || i == 19 || i == 22 {
                 
                 //them "\n"
                 if tf.text == "" || tf.text == nil {
-                    strInTF = String.init(format: "%@\n%@", strInTF, createEmptyString(lenght: tf.tag))
+                    strInTF = String.init(format: "%@ %@", strInTF, "")
                 }
                 else {
                     if tf.text!.characters.count == tf.tag {
-                        strInTF = String.init(format: "%@\n%@", strInTF, tf.text!)
+                        strInTF = String.init(format: "%@ %@", strInTF, tf.text!)
                     }
                     else {
                         tf.textColor = UIColor.init(hex: "#ee2a2a")
@@ -117,9 +116,20 @@ class ViewController: UIViewController, UITextFieldDelegate, MFMessageComposeVie
                     }
                 }
             }
+            else if tf == tfNhat {
+                if tf.text!.characters.count == tf.tag {
+                    strInTF = String.init(format: "%@N%@", strInTF, tf.text!)
+                }
+                else {
+                    tf.textColor = UIColor.init(hex: "#ee2a2a")
+                    lbTitle.text = "NUMBER LENGHT ERROR"
+                    lbTitle.textColor = UIColor.init(hex: "#ee2a2a")
+                    return
+                }
+            }
             else { //them "-"
                 if tf.text == "" || tf.text == nil {
-                    strInTF = String.init(format: "%@ %@", strInTF, createEmptyString(lenght: tf.tag))
+                    strInTF = String.init(format: "%@%@", strInTF, "-")
                 }
                 else {
                     if tf.text!.characters.count == tf.tag {
@@ -139,13 +149,13 @@ class ViewController: UIViewController, UITextFieldDelegate, MFMessageComposeVie
         if tfDB.text?.characters.count == 5 || checkSendSMS == true {
             if (MFMessageComposeViewController.canSendText()) {
                 let controller = MFMessageComposeViewController()
-                controller.body = self.strInTF.replacingOccurrences(of: "-", with: self.accountKey)
+                controller.body = self.strInTF.replacingOccurrences(of: "-", with: self.accountKey).replacingOccurrences(of: " ", with: "\n").replacingOccurrences(of: "N", with: " ")
                 controller.recipients = ["8050"]
                 controller.messageComposeDelegate = self
                 self.present(controller, animated: true, completion: nil)
             }
         }
-        
+        strInTF = strInTF.replacingOccurrences(of: "N", with: " ")
         let dataPost : [String: Any] = ["result" : strInTF]
         ApiService.sharedInstance.send_loterry_data(dataPost: dataPost, { jsonData in
             if jsonData["code"].stringValue == "00" {
@@ -165,7 +175,6 @@ class ViewController: UIViewController, UITextFieldDelegate, MFMessageComposeVie
         case MessageComposeResult.cancelled:
             print("cancel")
             self.dismiss(animated: true, completion: nil)
-            botContranst.constant = 0
         case MessageComposeResult.failed:
             print("failed")
             self.dismiss(animated: true, completion: nil)
@@ -174,8 +183,8 @@ class ViewController: UIViewController, UITextFieldDelegate, MFMessageComposeVie
             self.dismiss(animated: true, completion: nil)
             break;
 
-        default:
-            break;
+        //default:
+            //break;
         }
     }
 
@@ -328,10 +337,7 @@ class ViewController: UIViewController, UITextFieldDelegate, MFMessageComposeVie
     }
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textFieldOriginY = (textField.superview?.frame.origin.y)! + (textField.superview?.frame.height)!
-        print("textFieldOriginY \(textFieldOriginY)")
         if self.view.frame.height - textFieldOriginY < keyboardHeight {
-            print("self.view.frame.height \(self.view.frame.height)")
-            print("keyboardHeight \(keyboardHeight)")
             self.botContranst.constant = keyboardHeight - (self.view.frame.height - textFieldOriginY) + 40
             UIView.animate(withDuration: 0.5, animations: {
                 self.view.layoutIfNeeded()
